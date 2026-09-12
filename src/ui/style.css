@@ -494,6 +494,12 @@ input[type="range"]::-moz-range-thumb {
 
 .camera-card.is-live .camera-placeholder { display: none; }
 
+.camera-card.is-off {
+  opacity: 0;
+  transform: translateX(-150%);
+  pointer-events: none;
+}
+
 .camera-meter { padding: 9px 4px 2px; }
 .camera-meter-label {
   display: flex;

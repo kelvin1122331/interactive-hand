@@ -228,8 +228,10 @@ export class UIController {
     $('camera-card').classList.toggle('is-live', active);
   }
 
+  // Kartu kamera hanya digeser keluar layar (bukan display:none) agar browser
+  // tetap mengirim frame video saat preview disembunyikan.
   setPreviewVisible(visible) {
-    $('camera-card').style.display = visible ? '' : 'none';
+    $('camera-card').classList.toggle('is-off', !visible);
   }
 
   /** Indikator level ekspansi (0..1) pada kartu kamera. */

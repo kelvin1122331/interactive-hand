@@ -255,6 +255,12 @@ export class HandTracker {
     const video = this.video;
     if (!video || video.readyState < 2) return this.state;
 
+    // Samakan resolusi kanvas overlay dengan video agar kerangka tangan presisi.
+    if (video.videoWidth && (this.overlay?.width !== video.videoWidth)) {
+      this.overlay.width = video.videoWidth;
+      this.overlay.height = video.videoHeight;
+    }
+
     // Hanya jalankan inferensi bila ada frame baru dari kamera.
     if (video.currentTime === this.lastVideoTime) {
       this.#draw();
